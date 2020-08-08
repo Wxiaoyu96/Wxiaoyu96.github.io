@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="相似理论是我这学期流体seminar选到的课题。写一篇小文总结一下自己的困惑和收获。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="相似理论-读书笔记">
+<meta property="og:url" content="http://yoursite.com/2020/08/08/%E7%9B%B8%E4%BC%BC%E7%90%86%E8%AE%BA-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Morgen">
+<meta property="og:description" content="相似理论是我这学期流体seminar选到的课题。写一篇小文总结一下自己的困惑和收获。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-08-08T11:14:36.868Z">
+<meta property="article:modified_time" content="2020-08-08T11:48:47.563Z">
+<meta property="article:author" content="Xiaoyu">
+<meta property="article:tag" content="流体">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/08/08/%E7%9B%B8%E4%BC%BC%E7%90%86%E8%AE%BA-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>相似理论-读书笔记 | Morgen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Morgen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个记录学习与生活的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/%E7%9B%B8%E4%BC%BC%E7%90%86%E8%AE%BA-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyu">
+      <meta itemprop="description" content="你好，我在德国就读流体相关方向。在这里记录学习所得与生活所感。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Morgen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          相似理论-读书笔记
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-08 13:14:36 / 修改时间：13:48:47" itemprop="dateCreated datePublished" datetime="2020-08-08T13:14:36+02:00">2020-08-08</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>相似理论是我这学期流体seminar选到的课题。写一篇小文总结一下自己的困惑和收获。</p>
+<a id="more"></a>
+
+<p>由于带我的Beteuer基本不怎么管我，我自己后期也一直在忙项目的事情，只在最后答辩前一两周大概自己找了找相关的文献集中看了一下。</p>
+<h2 id="关于文献"><a href="#关于文献" class="headerlink" title="关于文献"></a>关于文献</h2><p>主要看的是下面几本书，都是业界很知名的大佬的著作。还翻到了这个领域基本上大家都会引用的一篇实验的文献。</p>
+<ul>
+<li><p>Pope, S. B., 2000, Turbulent Flow</p>
+</li>
+<li><p>White, F. M., 1974, Viscous Fluid Flow</p>
+</li>
+<li><p>Wilcox, D.C., 2006, Turbulence modeling for CFD</p>
+</li>
+<li><p>Christophe, B., 2015, Turbulence</p>
+</li>
+<li><p>Wygnanski, I., and Fiedler, H., 1969, Some Measurements in a Self-Preserving Jet</p>
+</li>
+</ul>
+<p>其实之前上流体相关课的时候就很奇怪，几乎所有教授遇到自由流体的相关理论都是避而不谈或是浅尝辄止，导致湍流理论都来来回回学了好多遍了，自由流还是一片模糊。这次借seminar的机会自己对于相似理论有了大概的认识，也进一步认清了流体就是玄学的事实:)</p>
+<p>说会到这个话题本身，有意思的是，即使大家都在讲同一个thema，切入点和着重点也全然不同。我第一次看的时候本来就云里雾里，看完几本书下来还以为是用了两套理论，后来自己又琢磨了几天发现说的根本就是一回事。</p>
+<p>整体而言，前两本书的思路基本一致，都是从实验观察到的相似现象入手一步步数学推导得出结论，也是我做答辩的时候主要参考的逻辑。内容上而言，Pope给出的数学细节更多一些，White则做了更多的物理层面的分析。值得一提的是，Pope把湍流各部分的budget的分析也放在这一章节让我有些摸不着头脑，导致前面的jet和后面的wake的分析隔得老远。在答辩的时候犯了一个小错误。把对jet的边界层方程的简化误认为是对广义上自由流体的普遍情况，这一点也被教授指出来了。相比之下White则一上来就给出了动量方程的具体形式，然后相似参数的定义，随后解方程。不过之后物理解释的篇幅还是要多于Pope的。</p>
+<p>Wilcox的书则是直接从普朗特混合层理论入手推导的，这就很奇葩了。而且这本书的推导过程在数学上整体而言要复杂很多。如果说前面两本更大程度在强调不同自由流模型对应的速度和流函数与x坐标直接的阶数问题的话，这本则把中心放在了对于系数结果的讨论上。我个人不是很喜欢这个逻辑，这本也只是扫了个大概。</p>
+<p>Turbulence是我最开始和Turbulent Flow一起看想要搞明白这个相似理论到底是什么东西的。结果Christope这本书着实有点吓到我，基本上是所有推导过程一步一步推下来的，搞得我刚开始在推的时候心态一度崩溃，有几处数学细节至今没有完全搞明白。</p>
+<p>至于最后一篇Wygnanski大概看到三分之一，后面的就不知所云了。前三分之一基本都是与他人实验结果的对比和一些物理上的分析，整体而言还算友好。</p>
+<h2 id="关于相似理论的推导"><a href="#关于相似理论的推导" class="headerlink" title="关于相似理论的推导"></a>关于相似理论的推导</h2><p>由于时间和自己理解上的问题，其实这个seminar做的不算很满意，成绩也一般。后面做完之后开始复习边界层，发现自由流基本都是同一套理论在处理问题。层流边界层理论，Blasius解也不过是其中比较简单的一个特殊情况。整体思路大都是通过一定假设简化NS方程得到对应自由流模型的边界层方程，引入流函数减少方程个数，再根据相似理论提出对应的无量纲相似参数把原本的偏微分方程变为常微分，最后再数值求解得到结论。思路讲起来不难，但是其中的很多细节深究起来还是很难解释。</p>
+<p>比如在NS方程简化为边界层方程的过程中，不同自由流模型下压力项的处理仍然是一个让我感到不解的地方。对于jet基本上都是由在y方向上的动量方程叠加伯努利方程从而把x方向的压力项变为压力和速度（对于平面板流而言只有速度)，也正是通过这种方式将原本x和y两个方向上的动量方程整合成一个方程。然而王老师指出对于wake而言压力项不能简单的作此忽略，我在文献中并无找到对于wake边界层推导的详细过程，因此此处仍存疑。从物理层面而言，压力项在自由流模型中究竟扮演什么角色这一问题我也没能得到清晰的认识。</p>
+<p>湍流的分析基本类似，只是加入了湍流粘性使得问题变得更加复杂。之前查文献走入误区，看了一些LES和不同RANS模型做出来的结果。理论上分析来看，由于不同方向的波动小量（Schwankungen)之间能量传递导致的不一致性（anisotrope）使得对于雷诺应力的分析结果可信度不高，更像是为了得到结果而强行靠近理论，得出的结果的适用范围也很小。可以说相似理论还是在层流的分析上是合理的，在湍流上的应用并不成功。</p>
+<p>Wygnanski给出的解释是由于能量首先由U，即主流速度传递给u，然后由雷诺应力输运方程中的能量传递项将u得到的能量再传递给v和w，因此导致u达到相似区的位置远后于U，v和w则更加靠后。这个分析过程与雷诺应力输运方程中各项得出的湍流的耗散与传递理论是相吻合的，但也正因为这样的特性使得对于湍流自由流，相似理论的应用变得困难。</p>
+<h2 id="关于平板边界层方程"><a href="#关于平板边界层方程" class="headerlink" title="关于平板边界层方程"></a>关于平板边界层方程</h2><p>在最后补充一下边界层考试的时候和王老师纠缠很久不是很清晰的一个问题。由于$\frac{dp}{dy}=0$，所以边界层内压力在y方程上没有变化。因此<br>$$<br>u_\delta \frac{\partial u_\delta}{\partial x}=-\frac{1}{\rho} \frac{\partial p_\delta}{\partial x}，<br>$$<br>才能得到对于速度减慢的流动对应的压力梯度是大于0的，因此也才由于在壁面上</p>
+<p>$$<br>\frac{dp_\delta}{dx}=-\mu \frac{\partial^2 u_\delta}{\partial y^2},<br>$$</p>
+<p>能够得出对应在速度分布曲线上的拐点，且拐点只意味着速度开始减慢，并不一定是流动就此处开始分离。两者之间并无直接的对应关系。</p>
+<p>想通了其实也蛮简单，但是考试的时候确实卡住了。复习到这里的时候也没有深想，考试被问到为什么速度减慢的流动对应的压力梯度$\frac{dp}{dx}$是正的懵掉了。后来回答上来了伯努利方程又被问到压力梯度$\frac{dp}{dx}$在边界层内部是否仍然为正。其实是应该仍然为正的，因为压力在边界层内部沿y方向并无变化。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%B5%81%E4%BD%93/" rel="tag"># 流体</a>
+          </div>
+
+        
+
+
+        
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E6%96%87%E7%8C%AE"><span class="nav-number">1.</span> <span class="nav-text">关于文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E7%9B%B8%E4%BC%BC%E7%90%86%E8%AE%BA%E7%9A%84%E6%8E%A8%E5%AF%BC"><span class="nav-number">2.</span> <span class="nav-text">关于相似理论的推导</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%B9%B3%E6%9D%BF%E8%BE%B9%E7%95%8C%E5%B1%82%E6%96%B9%E7%A8%8B"><span class="nav-number">3.</span> <span class="nav-text">关于平板边界层方程</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xiaoyu</p>
+  <div class="site-description" itemprop="description">你好，我在德国就读流体相关方向。在这里记录学习所得与生活所感。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
