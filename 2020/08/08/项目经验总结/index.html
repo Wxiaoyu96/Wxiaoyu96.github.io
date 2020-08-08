@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="title: 项目经验总结 date:  tags:   matlab  categories:  学习  mathjax: true 这一年做了两个Projekt和一个Tutorium，基本上都是用Matlab来处理数据，把我印象比较深的新学到的命令在这里做个总结。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Morgen">
+<meta property="og:url" content="http://yoursite.com/2020/08/08/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Morgen">
+<meta property="og:description" content="title: 项目经验总结 date:  tags:   matlab  categories:  学习  mathjax: true 这一年做了两个Projekt和一个Tutorium，基本上都是用Matlab来处理数据，把我印象比较深的新学到的命令在这里做个总结。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/wxiao/Dropbox/ARP/07_Ausarbeitung/Zusammen/Bericht07/figures/35_exp_d_.png">
+<meta property="og:image" content="https://de.mathworks.com/help/releases/R2020a/examples/matlab/win64/CreateTriangularSurfacePlotExample_01.png">
+<meta property="article:published_time" content="2020-08-08T13:42:54.915Z">
+<meta property="article:modified_time" content="2020-08-08T15:16:19.902Z">
+<meta property="article:author" content="Xiaoyu">
+<meta property="article:tag" content="流体，CFD，日记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/wxiao/Dropbox/ARP/07_Ausarbeitung/Zusammen/Bericht07/figures/35_exp_d_.png">
+
+<link rel="canonical" href="http://yoursite.com/2020/08/08/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Morgen</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Morgen</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一个记录学习与生活的地方</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/08/%E9%A1%B9%E7%9B%AE%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Xiaoyu">
+      <meta itemprop="description" content="你好，我在德国就读流体相关方向。在这里记录学习所得与生活所感。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Morgen">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-08 15:42:54 / 修改时间：17:16:19" itemprop="dateCreated datePublished" datetime="2020-08-08T15:42:54+02:00">2020-08-08</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>title: 项目经验总结</p>
+<p>date: </p>
+<p>tags: </p>
+<ul>
+<li>matlab</li>
+</ul>
+<p>categories:</p>
+<ul>
+<li>学习</li>
+</ul>
+<p>mathjax: true</p>
+<p>这一年做了两个Projekt和一个Tutorium，基本上都是用Matlab来处理数据，把我印象比较深的新学到的命令在这里做个总结。</p>
+<a id="more"></a>
+
+<h2 id="文件导入"><a href="#文件导入" class="headerlink" title="文件导入"></a>文件导入</h2><p>由于基本都是对仿真模拟获得的数据做可视化处理，所以第一步大都是文件导入</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A=importdata(<span class="string">&#x27;F:\Wise2020\ARP\matlab\Ahmed_35\Ahmed_35_Cp.dat&#x27;</span>);</span><br><span class="line">A=A.data;</span><br></pre></td></tr></table></figure>
+
+<p>这是对于大部分dat或是xlsx格式文件导入到matlab的命令，处理过后可以得到对应的矩阵。值得注意的是，对于txt文档格式无需第二行可直接通过路径导入。</p>
+<h2 id="建模处理"><a href="#建模处理" class="headerlink" title="建模处理"></a>建模处理</h2><p>这个命令是在做ADP处理耦合问题的时候翻阅user guide发现的，matlab内置很多optimization的算法。但是我个人感觉这个命令在处理大多数问题时比较通用</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=lsqlin(C,d)</span><br><span class="line">x=lsqlin(C,d,A,b)</span><br><span class="line">x=lsqlin(C,d,A,b,Aeq,beq,lb,ub)</span><br></pre></td></tr></table></figure>
+
+<p>具体解决的是多变量下的线性最小二乘问题。数学表达为如下形式：<br>$$<br>min\frac{1}{2}\parallel C\cdot x-d\parallel^2_2 \mathrm{such\ that} \left{<br>\begin{array}{<strong>lr</strong>}<br>A\cdot x\le b\<br>Aeq\cdot x=beq,\<br>lb\le x\le ub<br>\end{array}<br>\right.<br>$$<br>亦即在满足对应不等式和（或）等式条件下求得的各线性项在最小二乘条件下对应的系数，也可以不加限制条件</p>
+<p>扩展开来说，可以通过在前期自由定义所需公式中出现的各项的阶数从而不只是做简单的线性求解，因此可以扩展为多项式拆分问题。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_mean=<span class="number">1</span>/m*sum(x);</span><br><span class="line">x_S_tot=sum((x-x_mean).^<span class="number">2</span>);</span><br><span class="line">x=lsqlin(D,d);</span><br><span class="line">x_fitted=D*x;</span><br><span class="line">x_r=x-x_fitted;</span><br><span class="line">x_S_res=sum((x_r).^<span class="number">2</span>);</span><br><span class="line">x_R_2=<span class="number">1</span>-x_S_res/x_S_tot;</span><br></pre></td></tr></table></figure>
+
+<p>曲线拟合完成后可通过上述代码求得$R^2$，从而评估拟合的优劣性。这里提到曲线拟合是不准确的，由于这个命令可以处理矩阵，因此拟合问题的空间维度与x向量的行数相关。</p>
+<p>其实很难定义这个问题究竟是拟合问题（curve fitting）还是优化问题（optimization），但解决问题的思路大致如此。</p>
+<h2 id="图像可视化"><a href="#图像可视化" class="headerlink" title="图像可视化"></a>图像可视化</h2><p>matlab内置异常强大的画图算法，我之前只会简单的plot，这一年接触了不少处理图形的方法。</p>
+<h3 id="速度矢量图"><a href="#速度矢量图" class="headerlink" title="速度矢量图"></a>速度矢量图</h3><p>一般来说建模软件都会内置速度矢量图的输出功能，譬如接触到的COSMOL和Fluent都有对应的功能，但是要和实验数据做对比的时候还是需要第三方软件来实现实验数据的处理，matlab提供了相关命令。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quiver(x,y,u,v)</span><br></pre></td></tr></table></figure>
+
+<p>很简单的命令，但是做出来的图像非常的elegant。如果对应的实验数据比较稀疏，可以通过matlab进行展开加密。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=x_0,d_x,x_end;</span><br><span class="line">y=y_0,d_y,y_end;</span><br><span class="line">[X,Y]=<span class="built_in">meshgrid</span>(x,y);</span><br></pre></td></tr></table></figure>
+
+<p>亦即在对应的x和y位置上分别定义出点的坐标，得到的[X, Y]是一个多重数组。这个命令在其他的图像处理中也多次应用到。</p>
+<h3 id="压力云图"><a href="#压力云图" class="headerlink" title="压力云图"></a>压力云图</h3><p>此处写作压力云图，其实温度云图，或者说所有可以当作标量处理的物理量（即单列数组）都适用于这条命令。原理上是等高线（等势线）。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">xx = <span class="built_in">linspace</span>(<span class="built_in">min</span>(x),<span class="built_in">max</span>(x),d);\\在x方向生成线性间距向量</span><br><span class="line">yy = <span class="built_in">linspace</span>(<span class="built_in">min</span>(y),<span class="built_in">max</span>(y),d);\\在y方向生成线性间距向量</span><br><span class="line">yy =yy&#x27;;\\对y方向进行转置</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:d</span><br><span class="line">    xx(<span class="built_in">j</span>,:) = xx(<span class="number">1</span>,:);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">j</span> = <span class="number">1</span>:d</span><br><span class="line">    yy(<span class="built_in">j</span>,:) = yy(<span class="number">1</span>,:);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">zz = griddata(x,y,z,xx,yy);</span><br><span class="line">\\使zz=f(x,y)形式的曲面与向量(x，y，z)中的散点数据拟合。griddata函数在(xx，yy)指定的查询点对曲面进行插值并返回插入的值zz。曲面始终穿过x和y定义的数据点。默认为线性插值。</span><br><span class="line">contourf(xx,yy,zz,d);\\将拟合后的数值生成对应的等高线</span><br><span class="line"><span class="comment">%contourf(xx,yy,zz,d,&#x27;lines&#x27;,&#x27;no&#x27;);\\也可删去等高线只呈现趋势变化</span></span><br></pre></td></tr></table></figure>
+
+<p>命令中的d可以设置插入点的数量以及等高线中线的密集程度。griddata前的多个命令行也可通过上述的meshgrid语句实现，本质上都是对x和y坐标做线性的值的插入。</p>
+<img src="C:\Users\wxiao\Dropbox\ARP\07_Ausarbeitung\Zusammen\Bericht07\figures\35_exp_d_.png" alt="35_exp_d_" style="zoom:75%;" />
+
+<p>若对应的云图是三维的，matlab也提供对应的命令：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">trisurf(T,x,y,z)</span><br></pre></td></tr></table></figure>
+
+<p>可以画出三维点下对应的曲面，</p>
+<p><img src="https://de.mathworks.com/help/releases/R2020a/examples/matlab/win64/CreateTriangularSurfacePlotExample_01.png" alt="example"></p>
+<h3 id="plot的使用"><a href="#plot的使用" class="headerlink" title="plot的使用"></a>plot的使用</h3><p>plot虽然是matlab最基本的图形输出指令，但也有一些有意思的使用技巧。这里记一下做数据处理的时候我遇到的一些问题。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">h=<span class="built_in">plot</span>(x,y,<span class="string">&#x27;r&#x27;</span>)</span><br><span class="line"> set(h,<span class="string">&#x27;Marker&#x27;</span>,<span class="string">&#x27;*&#x27;</span>);</span><br><span class="line"> <span class="built_in">hold</span> on</span><br></pre></td></tr></table></figure>
+
+<p>这个命令可以使得输出的图像曲线自带图标，可以对多条曲线位于同一个坐标的情况做区分。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h=<span class="built_in">plot</span>(x,y,<span class="string">&#x27;r*&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>这条命令与上面一条的区别在于输出的图像只有对应点的信息，并没有连成线，如果数据稀少是不能看出对应数据的发展趋势的。</p>
+<p>值得注意的一点是，plot本身并没有排序的功能，只是单纯按照输入数组的数据进行连线，因此若本身输入的数据是混乱的（仿真与实验得到的结果大都如此），而且数据又比较少，单纯通过点的输出难以看出趋势，则需要额外的排序算法对数据进行梳理后再用plot进行图形输出。</p>
+<h3 id="图像保存"><a href="#图像保存" class="headerlink" title="图像保存"></a>图像保存</h3><p>大多数情况下我们会在plot输出后点击文件访问另存为，这样保存的图像按照屏幕分辨率和屏幕大小生成图像。但是在处理大量数据所需图形较多时，这样实在很不方便，matlab同样提供了内置语句来实现图片保存。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">saveas(fig,filename,formattype)；</span><br></pre></td></tr></table></figure>
+
+<p>这条指令用指定的文件格式formattype创建文件（jpg或png格式等），保存的图片大小默认与此时屏幕显示的窗口中的图片大小一致。图片的尺寸和分辨率可以通过print函数调节。</p>
+<p>若没有对fig命名，则可调用gcf保存以上指令生成的图片。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/08/08/%E7%9B%B8%E4%BC%BC%E7%90%86%E8%AE%BA-%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="prev" title="相似理论-读书笔记">
+      <i class="fa fa-chevron-left"></i> 相似理论-读书笔记
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E5%AF%BC%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">文件导入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E6%A8%A1%E5%A4%84%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">建模处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="nav-number">3.</span> <span class="nav-text">图像可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%9F%E5%BA%A6%E7%9F%A2%E9%87%8F%E5%9B%BE"><span class="nav-number">3.1.</span> <span class="nav-text">速度矢量图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%8B%E5%8A%9B%E4%BA%91%E5%9B%BE"><span class="nav-number">3.2.</span> <span class="nav-text">压力云图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#plot%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">3.3.</span> <span class="nav-text">plot的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BE%E5%83%8F%E4%BF%9D%E5%AD%98"><span class="nav-number">3.4.</span> <span class="nav-text">图像保存</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Xiaoyu</p>
+  <div class="site-description" itemprop="description">你好，我在德国就读流体相关方向。在这里记录学习所得与生活所感。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoyu</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
